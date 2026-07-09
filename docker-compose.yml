@@ -32,7 +32,7 @@ services:
     container_name: nginx-container
     image: nginx:stable-alpine
     ports:
-      - "8080:80"
+      - "80:80"
     # we used depends_on to specify that the nginx service depends on the node_app service, which means that the node_app service will be started before the nginx service. This is important because the nginx service needs to forward requests to the node_app service, so it needs to be started after the node_app service is started.
     depends_on:
       - node_app
