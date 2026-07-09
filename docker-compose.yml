@@ -50,15 +50,15 @@ volumes:
 
 
 # =========================================================================================================================================================================
-    mongo:
-      container_name: mongo-container
-      image: mongo
-      restart: always
-      volumes:
-       - mongo-db:/data/db
-      environment:
-        MONGO_INITDB_ROOT_USERNAME: root
-        MONGO_INITDB_ROOT_PASSWORD: example
+  mongo:
+    container_name: mongo-container
+    image: mongo
+    restart: always
+    volumes:
+     - mongo-db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
 # =========================================================================================================================================================================
   # postgres:
   #   container_name: postgres-container
