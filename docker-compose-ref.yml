@@ -1,0 +1,11 @@
+version: '5.0.0'
+services:
+  node_app:
+    container_name: express-node-app-container
+    build: .
+    volumes:
+      - ./src:/app/src:ro
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./.env

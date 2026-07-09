@@ -1,0 +1,10 @@
+version: '5.0.0'
+services:
+  node_app:
+    build:
+    # you are building from where it goes to dockerfile
+      context: .
+      target: production
+    environment:
+      - NODE_ENV=production
+    command: npm start

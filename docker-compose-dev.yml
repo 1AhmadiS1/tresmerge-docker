@@ -1,0 +1,13 @@
+version: '5.0.0'
+services:
+  node_app:
+    build:
+    # you are building from where
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+    environment:
+      - NODE_ENV=development
+    command: npm run start-dev
+
