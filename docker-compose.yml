@@ -1,4 +1,4 @@
-version: '5.0.0'
+version: '3.8'
 services:
   node_app:
     container_name: express-node-app-container
@@ -9,7 +9,8 @@ services:
 
     # depends_on is used to specify the dependencies between services. In this case, the node_app service depends on the mongo service, which means that the mongo service will be started before the node_app service.
     depends_on:
-      - postgres
+      # - postgres
+      - mongo
 
     build:
     # you are building from where it goes to dockerfile
@@ -43,7 +44,7 @@ services:
 
 volumes:
   mogno-db:
-  postgres-db:
+  # postgres-db:
 
 
 
