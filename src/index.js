@@ -60,7 +60,7 @@ redisClient.connect();
 // Save data into Redis
 app.get('/', async (req, res) => {
   await redisClient.set('product', 'product...');
-  res.send('<h1>Hello</h1>');
+  res.send('<h1>Hello tresmerge from AWS </h1>');
 });
 
 // Read data from Redis
