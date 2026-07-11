@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const redis = require('redis');
 const pg = require('pg');
-
+const os=require('os');
 const { Client } = pg;
 
 const app = express();
@@ -60,7 +60,8 @@ redisClient.connect();
 // Save data into Redis
 app.get('/', async (req, res) => {
   await redisClient.set('product', 'product...');
-  res.send('<h1>Hello tresmerge from AWS ,using docker hub &</h1>');
+  console.log(`traffic from ${os.hostname}`)
+  res.send('<h1>Hello tresmerge from AWS ,using docker hub & watchtower 1</h1>');
 });
 
 // Read data from Redis

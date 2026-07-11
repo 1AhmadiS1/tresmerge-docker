@@ -1,12 +1,35 @@
 version: '3.8'
 services:
   node_app:
-    container_name: express-node-app-container
     image: ahmadiseed/tresmergedocker
-    ports:
-      - "4000:4000"
     env_file:
       - ./.env
+
+    deploy:
+      replicas: 4
+
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: stop-first
+        failure_action: rollback
+
+      rollback_config:
+        parallelism: 1
+        delay: 5s
+        order: stop-first
+
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 256M
 
     # depends_on is used to specify the dependencies between services. In this case, the node_app service depends on the mongo service, which means that the mongo service will be started before the node_app service.
     depends_on:
